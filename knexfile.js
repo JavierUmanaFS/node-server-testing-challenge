@@ -1,4 +1,4 @@
-const pgConfig = process.env.DATABASE_URL || "postgreql://postgres@localhost/projects";
+const pgConfig = process.env.DATABASE_URL || "postgreql://postgres:abc@localhost/projects";
 
 module.exports = {
   development: {

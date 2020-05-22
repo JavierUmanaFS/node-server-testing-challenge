@@ -8,8 +8,13 @@ module.exports = {
   findById,
 };
 
-async function insert(hobbit) {
-  return null;
+async function insert(project) {
+  try{
+    const [id] = await db("projects").insert(project, "id");
+    return findById(id);
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function update(id, changes) {
@@ -17,13 +22,13 @@ async function update(id, changes) {
 }
 
 function remove(id) {
-  return null;
+return db("projects").where({ id }).del();
 }
 
 function getAll() {
-  return db('hobbits');
+  return db('projects');
 }
 
 function findById(id) {
-  return null;
+  return db("projects").where({ id }).first();
 }
